@@ -14,10 +14,6 @@ app.listen(port, () => {
   console.log('Server running on port ' + port);
 });
 
-app.get('/GitHubAutoDeploy', (req, res) => {
-	res.send("Hello World");
-});
-
 app.post('/GitHubAutoDeploy', (req, res) => {
 	res.sendStatus(200);
 	console.log(req);
