@@ -2,9 +2,9 @@
   "name": "githubautodeploy",
   "version": "1.0.0",
   "description": "A Node.JS server to automatically deploy changes after pushing to a GitHub repo. ",
-  "main": "server.js",
+  "main": "GitHubAutoDeploy.js",
   "scripts": {
-    "test": "nodemon server.js"
+    "test": "nodemon GitHubAutoDeploy.js"
   },
   "repository": {
     "type": "git",
