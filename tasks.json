@@ -1,0 +1,7 @@
+{
+  "Website": {
+    "commands": ["echo \"Hello World\"",
+                "ls"]
+  }
+  
+}
