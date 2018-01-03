@@ -1,7 +1,14 @@
 {
   "Website": {
-    "commands": ["echo \"Hello World\"",
-                "ls"]
+    "commands": ["git -C /home/joe/Website pull",
+                "cp /home/joe/Website/*.html /var/www/html/",
+		"cp /home/joe/Website/*.css /var/www/html/",
+		"cp /home/joe/Website/*.js /var/www/html/"
+		]
+  },
+  "GitHubAutoDeploy": {
+    "commands": ["git -C /home/joe/GitHubAutoDeploy pull"
+                ]
   }
   
 }

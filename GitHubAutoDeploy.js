@@ -44,19 +44,27 @@ app.post('/GitHubAutoDeploy', (req, res) => {
 	}
 	
 	let commands = tasks[repoName].commands;
-	commands.forEach(com => executeCommand(com));
+	executeCommands(commands);
 	
 });
 
-function executeCommand(com){
-	exec(com,
-		(error, stdout, stderr) => {
-				console.log(`${stdout}`);
-				console.log(`${stderr}`);
-				if (error !== null) {
-						console.log(`exec error: ${error}`);
-				}
-		});
+function executeCommands(commands){
+	executeCommand(commands, 0);
+}
+
+function executeCommand(commands, index){
+	exec(commands[index], (error, stdout, stderr) => {
+		console.log('> ' + commands[index]);
+		if (error) {
+			console.error('exec error: ' + error);
+			return;
+		}
+		console.log('stdout: ' + stdout);
+		console.log('stderr: ' + stderr);
+		console.log();
+		if(index != commands.length-1)
+			executeCommand(commands, index+1);
+	});
 }
 
 /*
