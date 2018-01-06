@@ -11,7 +11,7 @@
                 ]
   },
   "GoogleGarbler": {
-    "commands": ["git -C /home/joe/GoogleGarbler",
+    "commands": ["git -C /home/joe/GoogleGarbler pull",
                  "make -C /home/joe/GoogleGarbler",
                  "cp /home/joe/GoogleGarbler/*.html /var/www/html/GoogleGarbler",
                  "cp -r /home/joe/GoogleGarbler/css /var/www/html/GoogleGarbler/css",
