@@ -1,9 +1,9 @@
 {
   "Website": {
     "commands": ["git -C /home/joe/Website pull",
-                "cp /home/joe/Website/*.html /var/www/html/",
-		"cp /home/joe/Website/*.css /var/www/html/",
-		"cp /home/joe/Website/*.js /var/www/html/"
+                "html-minifier --input-dir ./ --output-dir build --file-ext html",
+                "crass solarized.css --optimize --O1 > build/solarized.css",
+                "cp /home/joe/Website/build/* /var/www/html/"
 		]
   },
   "GitHubAutoDeploy": {
@@ -12,10 +12,15 @@
   },
   "GoogleGarbler": {
     "commands": ["git -C /home/joe/GoogleGarbler pull",
-                 "make -C /home/joe/GoogleGarbler",
-                 "cp /home/joe/GoogleGarbler/*.html /var/www/html/GoogleGarbler",
-                 "cp -r /home/joe/GoogleGarbler/css /var/www/html/GoogleGarbler/css",
-                 "cp -r /home/joe/GoogleGarbler/js /var/www/html/GoogleGarbler/js"
+                 "make -C /home/joe/GoogleGarbler/",
+                 "mkdir /home/joe/GoogleGarbler/build",
+                 "mkdir -p -m 775 /home/joe/GoogleGarbler/css",
+                 "mkdir -p -m 775 /home/joe/GoogleGarbler/js",
+                 "mkdir -p -m 775 /var/www/html/GoogleGarbler",
+                 "html-minifier --input-dir ./ --output-dir build --file-ext html",
+                 "crass css/style.css --optimize --O1 > build/css/style.css",
+                 "uglifyjs js/script.js --compress --mangle -o build/js/script.js",
+                 "cp -r /home/joe/GoogleGarbler/build/* /var/www/html/GoogleGarbler/"
                 ]
   }
   
