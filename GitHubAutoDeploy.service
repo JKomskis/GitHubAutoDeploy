@@ -1,0 +1,14 @@
+[Unit]
+Description=GitHubAutoDeploy Node JS server
+
+[Service]
+ExecStart=/usr/bin/nodejs /home/joe/GitHubAutoDeploy/GitHubAutoDeploy.js
+Restart=always
+User=joe
+Group=www-data
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/home/joe/GitHubAutoDeploy
+
+[Install]
+WantedBy=multi-user.target

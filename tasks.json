@@ -10,7 +10,8 @@
 		]
   },
   "GitHubAutoDeploy": {
-    "commands": ["git -C ~/GitHubAutoDeploy pull"
+    "commands": ["git -C ~/GitHubAutoDeploy pull",
+                 "sudo service GitHubAutoDeploy restart"
                 ]
   },
   "GoogleGarbler": {
